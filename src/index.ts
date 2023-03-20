@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import path from "path";
+import homeRoutes from "./routes/home";
 
 // Import the .env variables
 dotenv.config();
@@ -19,7 +20,10 @@ const port = process.env.DEV_PORT;
 app.use( bodyParser.urlencoded({ extended : true }) );
 
 // Serve the css files statically
-app.use(express.static( path.join(__dirname, "/css") ));
+app.use( express.static( path.join(__dirname, "/css") ));
+
+// Handle routes
+app.use( homeRoutes );
 
 // Listen to the port
 app.listen(port, () => {
