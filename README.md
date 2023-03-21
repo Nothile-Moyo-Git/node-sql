@@ -32,9 +32,9 @@ Once this all done, create a `src` folder with an `index.ts` file to go inside i
 Nodemon (pronounced node-mon) is a package that allows for "cold reloading". 
 Cold reloading is a concept that insolves executing and reloading typescript files whenever they change.
 
-This also applies to files imported into the index file
+This also applies to files imported into the index file.
 
-To do this, start by running `npm install --save-dev ts-node nodemon`
+To do this, start by running `npm install --save-dev ts-node nodemon`.
 
 Once it's installed, create a "nodemon.json" config file and copy the following details into it:
 
@@ -47,14 +47,14 @@ Once it's installed, create a "nodemon.json" config file and copy the following 
 
 In your package.json file, add the following under the "scripts" section of your file:
 
-"start": "nodemon src/index.ts"
+"start": "nodemon src/index.ts".
 
 ### Express
 Now that you have typescript and nodemon running. You'll need to create a server. You can do this using the "http", "https" or "express" servers. In this template project, we'll use express.
 
 To do this, we'll need to install the appropriate packages. 
 
-Start by running `npm install express --save` followed by `npm install @types/express --save-dev`
+Start by running `npm install express --save` followed by `npm install @types/express --save-dev`.
 
 This install express and the typescript extension for it. You can now instantiate it in your index.ts file found in "src".
 
@@ -69,6 +69,56 @@ We have *dotenv* which allows us to use a configuration (.env) file locally.
 To install these packages, please run `npm install body-parser dotenv --save`.
 
 ### Gulp and SCSS
+In order to use SCSS with this project, I would advise that you follow the BEM convention.
+
+BEM stands for "Block, Element, Modifier". It's a way of writing stylesheets which is more scalable and maintainable.
+
+You'll need to install the appropriate gulp packages.
+`npm install gulp gulp-sass node-sass gulp-concat --save-dev`.
+
+Once you've done this, you'll need to create a new folder. Create a sass folder in the "src" folder.
+
+Following on from this, you'll need to create a gulpfile. Please call this "gulpfile.js" and place it in your main folder.
+
+For this template, write this inside of it:
+
+`'use strict';
+
+const gulp = require('gulp');
+
+const sass = require('gulp-sass')(require('node-sass'));
+
+const concat = require('gulp-concat');
+
+sass.compiler = require('node-sass');
+
+gulp.task('sass', function () {
+
+   return gulp.src('src/sass/**/*.scss')
+   .pipe(concat('custom.scss'))
+   .pipe(sass().on('error', sass.logError))
+   .pipe(gulp.dest('src/css'));
+});
+
+// Gulp watcher, automatically runs
+gulp.task('sass:watch', function () {
+
+   gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
+});`
+
+**Note: This has been written to work with TypeScript**
+
+It will allow you to run gulp runs manually, or to use a gulp "watch" which basically means a service which updates your css file as you write your SCSS code. You'll need to refresh the page to see your changes as this is server side.
+
+Once you've done this, add some new scripts to your package.json file.
+
+"scss" : "gulp sass",
+"watch" : "gulp sass:watch"
+
+In order to convert your scss to css code. Run `npm run scss`.
+In order to start a watch run (which dynamically compiles scss changes), run `npm run watch`.
+
+**Note: You'll need to reference your styles locally**
 
 ### Github
 
