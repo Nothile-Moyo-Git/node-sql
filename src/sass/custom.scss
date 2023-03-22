@@ -1,8 +1,10 @@
+@import './pages/home.scss';
 @import './partials/animations';
 @import './partials/branding';
 @import './partials/mixins';
 @import './partials/responsive';
 @import './partials/fonts';
+
 
 html{
     width: 100%;
@@ -20,3 +22,4 @@ body{
     margin: 0;
     font-family: "Open sans";
 }
+

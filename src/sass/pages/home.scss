@@ -1,0 +1,13 @@
+@import "../partials/branding";
+
+.home{
+
+    &__title{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    &__logo{
+        width: 250px;
+    }
+}

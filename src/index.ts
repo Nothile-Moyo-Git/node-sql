@@ -22,6 +22,9 @@ app.use( bodyParser.urlencoded({ extended : true }) );
 // Serve the css files statically
 app.use( express.static( path.join(__dirname, "/css") ));
 
+// Serve our image files statically
+app.use( express.static( path.join(__dirname, "/images") ));
+
 // Handle routes
 app.use( homeRoutes );
 
