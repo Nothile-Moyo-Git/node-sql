@@ -1,11 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-.home__title {
-  font-size: 3rem;
-  text-align: center; }
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
-.home__logo {
-  width: 250px; }
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%; }
+  50% {
+    background-position: 100% 100%; }
+  100% {
+    background-position: 0% 0%; } }
+
+@keyframes efficient-gradient {
+  0% {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%); }
+  25% {
+    transform: translate(-37.5%);
+    -webkit-transform: translateX(-37.5%); }
+  50% {
+    transform: translateX(-75%);
+    -webkit-transform: translateX(-75%); }
+  75% {
+    transform: translateX(-37.5%);
+    -webkit-transform: translateX(-37.5%); }
+  100% {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%); } }
+
+/*
+    Slide in animation for the burger menu on the right hand side
+*/
+@keyframes burger-menu-slide-in {
+  0% {
+    left: 100%; }
+  100% {
+    left: calc(100% - 300px); } }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.2); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: rotate(4deg); }
+  50% {
+    transform: rotate(0deg); }
+  75% {
+    transform: rotate(-4deg); }
+  100% {
+    transform: rotate(0deg); } }
+
+/* 
+    Background gradient effect
+    This hover effect creates an efficient and smooth gradient animation
+    It is currently optimized for modern browsers by avoiding repainting
+    It also takes advantage of the GPU as much as possible
+    To use this, pass through your linear gradient and set the z-index of the parent to at least 1
+    If you want to delay this animation, pass it to the parent using an inline style
+    This can be great if you're rendering a list of cards and want to delay each animation
+*/
+/* Responsive */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(0deg); } }
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .home__title {
+    font-size: 4rem;
+    text-align: center; }
+  .home__logo {
+    width: 250px;
+    animation: spin 12s linear infinite;
+    margin: auto; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 32, 42, 0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0;
+  font-family: "Open sans"; }
 
 @keyframes fade-in {
   0% {
@@ -83,27 +188,25 @@
     This can be great if you're rendering a list of cards and want to delay each animation
 */
 /* Responsive */
-html {
-  width: 100%;
-  height: 100%; }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(0deg); } }
 
-body {
-  width: 100%;
-  height: 100%;
-  background: rgba(30, 32, 42, 0.97);
+.home {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin: 0;
-  font-family: "Open sans"; }
-
-.home__title {
-  font-size: 3rem;
-  text-align: center; }
-
-.home__logo {
-  width: 250px; }
+  flex-direction: column;
+  justify-content: center; }
+  .home__title {
+    font-size: 4rem;
+    text-align: center; }
+  .home__logo {
+    width: 250px;
+    animation: spin 12s linear infinite;
+    margin: auto; }
 
 @keyframes fade-in {
   0% {

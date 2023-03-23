@@ -118,9 +118,7 @@ Once you've done this, add some new scripts to your package.json file.
 In order to convert your scss to css code. Run `npm run scss`.
 In order to start a watch run (which dynamically compiles scss changes), run `npm run watch`.
 
-**Note: You'll need to reference your styles locally**
-
-### Github
+**Note: You don't need to import Shared.scss into your page files. Simply import page file and the shared styles will automatically be imported. You can see an example of this inside "home.scss"**
 
 ### Optional: filepaths
 You'll find a path.ts file found in "src/util/path.ts".

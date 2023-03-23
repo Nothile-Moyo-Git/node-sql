@@ -1,13 +1,24 @@
-@import "../partials/branding";
+// Spinning animation
+@keyframes spin{
+    0%{ transform: rotate( 0deg ); }
+    50%{ transform: rotate( 360deg ); }
+    100%{ transform: rotate( 0deg ); }
+}
 
 .home{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &__title{
-        font-size: 3rem;
+        font-size: 4rem;
         text-align: center;
     }
 
     &__logo{
         width: 250px;
+        animation: spin 12s linear infinite;
+        margin: auto;
     }
 }
