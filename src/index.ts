@@ -25,6 +25,11 @@ app.use( express.static( path.join(__dirname, "/css") ));
 // Serve our image files statically
 app.use( express.static( path.join(__dirname, "/images") ));
 
+// Set the type of view engine we want to use
+// We can use EJS since it's supported out of the box
+app.set('view engine', 'ejs');
+app.set('views', 'src/views');
+
 // Handle routes
 app.use( homeRoutes );
 
