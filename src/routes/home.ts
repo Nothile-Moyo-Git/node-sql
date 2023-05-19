@@ -16,4 +16,4 @@ homeRoutes.get("/", (request : Request, response : Response, next : NextFunction
 
 });
 
-export default homeRoutes;
+export default homeRoutes; 
